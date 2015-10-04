@@ -26,7 +26,8 @@
     
     UILabel *label = [UILabel new];
     label.textAlignment = NSTextAlignmentCenter;
-    
+    label.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];  //kalyani
+    label.font = [UIFont fontWithName:@"OpenSans-Light" size:11];
     return label;
 }
 
@@ -57,6 +58,8 @@
         }
         
         text = [[dateFormatter standaloneMonthSymbols][currentMonthIndex - 1] capitalizedString];
+        long yearv =(long)comps.year;
+        text= [text stringByAppendingString:[NSString stringWithFormat:@" %ld",yearv]];
     }
         
     [(UILabel *)menuItemView setText:text];

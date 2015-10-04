@@ -68,9 +68,10 @@
         _textLabel = [UILabel new];
         [self addSubview:_textLabel];
         
-        _textLabel.textColor = [UIColor blackColor];
+        _textLabel.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+        _textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:[UIFont systemFontSize
+                                                                          ]];
     }
     
     {

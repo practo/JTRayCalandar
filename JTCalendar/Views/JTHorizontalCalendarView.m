@@ -23,13 +23,14 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     UIView<JTCalendarPage> *_centerView;
     UIView<JTCalendarPage> *_rightView;
     
+    NSDate *previousDate;
     JTCalendarPageMode _pageMode;
 }
 
 @end
 
 @implementation JTHorizontalCalendarView
-
+@synthesize nextDate;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -53,6 +54,20 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     
     return self;
 }
+
+- (void)addDotforDate:(NSDate*)date
+{
+    
+    _centerView.date = date;
+    _rightView.date  =  date;
+    _leftView.date = date;
+    
+    [_leftView reload];
+    [_centerView reload];
+    [_rightView reload];
+    
+}
+
 
 - (void)commonInit
 {
@@ -157,11 +172,35 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     CGPoint point = CGPointMake(self.contentOffset.x + size.width, 0);
     [self setContentOffset:point animated:YES];
 }
+-(NSInteger)findDifferenceBetweenMonthsFromDate:(NSDate *)currentdate toDate:(NSDate *)prevDate
+{
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDateComponents * currentDateComponents = [calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:currentdate];
+    NSInteger currentMonth =currentDateComponents.month;
+    NSLog(@"month number = %ld", (long)currentDateComponents.month);
+    
+    NSDateComponents * prevDateComponents = [calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:prevDate];
+    NSInteger prevMonth =prevDateComponents.month;
+    if (currentMonth>prevMonth)
+        return (currentMonth-prevMonth);
+    else
+        return (prevMonth-currentMonth);
+    
+    
+}
 
 - (void)loadPreviousPage
 {
-    NSDate *nextDate = [_manager.delegateManager dateForPreviousPageWithCurrentDate:_leftView.date];
+    NSInteger monthsDiff = [self findDifferenceBetweenMonthsFromDate:_rightView.date toDate:previousDate];
+
+    nextDate = [_manager.delegateManager dateForPreviousPageWithCurrentDate:_leftView.date];
+    previousDate =_leftView.date;
     
+    if (monthsDiff>0) {
+        [_refDelegate getprevioushDataFrom:_leftView.date];
+        
+    }
+
     // Must be set before chaging date for PageView for updating day views
     self->_date = _leftView.date;
     
@@ -240,7 +279,14 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 - (void)loadNextPage
 {
-    NSDate *nextDate = [_manager.delegateManager dateForNextPageWithCurrentDate:_rightView.date];
+    NSInteger monthsDiff = [self findDifferenceBetweenMonthsFromDate:_rightView.date toDate:previousDate];
+    
+    nextDate = [_manager.delegateManager dateForNextPageWithCurrentDate:_rightView.date];
+    previousDate = _rightView.date;
+    if (monthsDiff>0) {
+        [_refDelegate getNextMonthDataFrom:_rightView.date];
+        
+    }
     
     // Must be set before chaging date for PageView for updating day views
     self->_date = _rightView.date;

@@ -137,7 +137,7 @@
         }
         
         _weekDayView.frame = CGRectMake(0, 0, weekWidth, weekDayHeight);
-        y = weekDayHeight;
+        y = weekDayHeight-10;
     }
     
     CGFloat weekHeight = (self.frame.size.height - y) / _numberOfWeeksDisplayed;
