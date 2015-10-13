@@ -70,8 +70,7 @@
         
         _textLabel.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:[UIFont systemFontSize
-                                                                          ]];
+        _textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     }
     
     {
@@ -99,9 +98,9 @@
     _circleView.center = CGPointMake(self.frame.size.width / 2., self.frame.size.height / 2.);
     _circleView.layer.cornerRadius = sizeCircle / 2.;
     
-    _dotView.frame = CGRectMake(0, 0, sizeDot, sizeDot);
-    _dotView.center = CGPointMake(self.frame.size.width / 2., (self.frame.size.height / 2.) +sizeDot * 2.5);
-    _dotView.layer.cornerRadius = sizeDot / 2.;
+    _dotView.frame = CGRectMake(0, 0, 6, sizeDot-1);
+    _dotView.center = CGPointMake(self.frame.size.width / 2., (self.frame.size.height / 2.) +5 * 2.5);
+     _dotView.backgroundColor = [UIColor blackColor];
 }
 
 - (void)setDate:(NSDate *)date

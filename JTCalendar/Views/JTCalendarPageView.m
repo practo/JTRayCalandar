@@ -143,7 +143,7 @@
     CGFloat weekHeight = (self.frame.size.height - y) / _numberOfWeeksDisplayed;
     
     for(UIView *weekView in _weeksViews){
-        weekView.frame = CGRectMake(0, y, weekWidth, weekHeight);
+        weekView.frame = CGRectMake(0, y-12, weekWidth, weekHeight);
         y += weekHeight;
     }
 }
