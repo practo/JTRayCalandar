@@ -62,6 +62,7 @@
 
         _dotView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         _dotView.layer.shouldRasterize = YES;
+         _dotView.layer.cornerRadius =2;
     }
     
     {

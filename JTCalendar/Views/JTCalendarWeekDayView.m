@@ -47,8 +47,8 @@
         [dayViews addObject:label];
         
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor colorWithRed:103./255. green:103./255. blue:103./255. alpha:1.];
-        label.font = [UIFont fontWithName:@"OpenSans-Light" size:11];//kalyani
+        label.textColor = [UIColor colorWithRed:103.0f/255.0f green:103.0f/255.0f blue:103.0f/255.0f alpha:1.0f];
+        label.font = [UIFont fontWithName:@"OpenSans" size:11];
     }
     
     _dayViews = dayViews;
@@ -95,7 +95,7 @@
     
     for(int i = 0; i < NUMBER_OF_DAY_BY_WEEK; ++i){
         UILabel *label =  _dayViews[i];
-        label.text = days[i];
+        label.text = [days[i] capitalizedString];
     }
 }
 

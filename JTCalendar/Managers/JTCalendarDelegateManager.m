@@ -26,8 +26,8 @@
     
     UILabel *label = [UILabel new];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];  //kalyani
-    label.font = [UIFont fontWithName:@"OpenSans-Light" size:11];
+    label.textColor = [UIColor colorWithRed:103.0f/255.0f green:103.0f/255.0f blue:103.0f/255.0f alpha:1.0f];  //kalyani
+    label.font = [UIFont fontWithName:@"OpenSans" size:11];
     return label;
 }
 
