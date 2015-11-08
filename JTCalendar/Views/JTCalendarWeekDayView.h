@@ -24,5 +24,6 @@
  * Rebuild the view, must be call if you change `weekDayFormat` or `firstWeekday`
  */
 - (void)reload;
+- (void)selectedDay:(NSInteger )selectedWeekDay;
 
 @end

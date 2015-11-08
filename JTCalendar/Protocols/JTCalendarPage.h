@@ -17,5 +17,7 @@
 - (void)setDate:(NSDate *)date;
 
 - (void)reload;
+-(void)setColorWeekDay;
+- (void)setCOlorForSelecetedDay:(NSDate *)selDate;
 
 @end

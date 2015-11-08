@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 @implementation JTHorizontalCalendarView
 @synthesize nextDate;
+@synthesize isReload;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -140,7 +141,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
             
             break;
     }
-    
+    [_centerView setColorWeekDay];
     [_manager.scrollManager updateMenuContentOffset:(self.contentOffset.x / self.contentSize.width) pageMode:_pageMode];
 }
 
@@ -212,7 +213,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     
     _leftView = tmpView;
     _leftView.date = nextDate;
-    
+    [_leftView setColorWeekDay];
     [self updateMenuDates];
     
     JTCalendarPageMode previousPageMode = _pageMode;
@@ -299,7 +300,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     
     _rightView = tmpView;
     _rightView.date = nextDate;
-    
+     [_rightView setColorWeekDay];
     [self updateMenuDates];
     
     JTCalendarPageMode previousPageMode = _pageMode;
@@ -389,7 +390,11 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     _leftView.date = [_manager.delegateManager dateForPreviousPageWithCurrentDate:date];
     _centerView.date = date;
     _rightView.date = [_manager.delegateManager dateForNextPageWithCurrentDate:date];
-    
+    if (self.isReload) {
+        self.isReload = NO;
+        [_centerView setCOlorForSelecetedDay:[self.manager date]];
+        
+    }
     [self updateMenuDates];
     
     [self updatePageMode];

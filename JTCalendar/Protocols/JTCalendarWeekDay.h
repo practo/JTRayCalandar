@@ -15,4 +15,6 @@
 
 - (void)reload;
 
+- (void)selectedDay:(NSInteger )selectedWeekDay;
+
 @end

@@ -46,7 +46,8 @@
     
     // Create a min and max date for limit the calendar, optional
     [self createMinAndMaxDate];
-    
+    [_calendarManager.dateHelper.calendar setFirstWeekday:2];
+
     [_calendarManager setMenuView:_calendarMenuView];
     [_calendarManager setContentView:_calendarContentView];
     [_calendarManager setDate:_todayDate];
@@ -124,6 +125,8 @@
                       duration:.3
                        options:0
                     animations:^{
+                        _calendarContentView.isReload = YES;
+                        [_calendarManager setDate:_dateSelected];
                         dayView.circleView.transform = CGAffineTransformIdentity;
                         [_calendarManager reload];
                     } completion:nil];

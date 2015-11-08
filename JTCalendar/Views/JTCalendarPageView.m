@@ -10,7 +10,8 @@
 #import "JTCalendarManager.h"
 
 #define MAX_WEEKS_BY_MONTH 6
-
+static     NSInteger weekdayNumber;
+static     NSDate  *selectedDate;
 @interface JTCalendarPageView (){
     UIView<JTCalendarWeekDay> *_weekDayView;
     NSMutableArray *_weeksViews;
@@ -59,9 +60,49 @@
     
     [self reload];
 }
+-(void)setColorWeekDay
+{
+    
+    if (weekdayNumber>=0) {
+        if (weekdayNumber>8) {
+            return;
+        }
+        [_weekDayView selectedDay:weekdayNumber-2];
+    }
+    //    [_weekDayView selectedDay:9];
+    //
+    //    if ([self.date isEqualToDate:selectedDate]) {
+    //        [self setCOlorForSelecetedDay:selectedDate];
+    //    }
+    
+}
+- (void)setCOlorForSelecetedDay:(NSDate *)selDate
+{
+    NSCalendar* currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents* dateComponents = [currentCalendar components:NSWeekdayCalendarUnit fromDate:selDate];
+    NSInteger day = [dateComponents weekday];
+    
+    selectedDate = selDate;
+    if (day==1) {
+        day = 8;
+    }
+    if (day>8) {
+        return;
+    }
+    
+    weekdayNumber = day;
+    [_weekDayView selectedDay:day-2];
+    
+}
 
 - (void)reload
 {
+//    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear |NSCalendarUnitWeekday fromDate:self.date];
+//    
+//    NSInteger day = [components weekday];
+//    [_weekDayView selectedDay:day-1];
+//
+    
     if(_manager.settings.pageViewHaveWeekDaysView && !_weekDayView){
         _weekDayView = [_manager.delegateManager buildWeekDayView];
         [self addSubview:_weekDayView];

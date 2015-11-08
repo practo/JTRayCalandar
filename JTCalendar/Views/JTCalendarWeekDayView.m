@@ -98,7 +98,20 @@
         label.text = [days[i] capitalizedString];
     }
 }
-
+- (void)selectedDay:(NSInteger )selectedWeekDay
+{
+    
+    for(int i = 0; i < NUMBER_OF_DAY_BY_WEEK; ++i){
+        UILabel *label =  _dayViews[i];
+        [label setTextColor:[UIColor grayColor]];
+    }
+    
+    if (selectedWeekDay > [_dayViews count]) {
+        return;
+    }
+    UILabel *label = _dayViews[selectedWeekDay];
+    [label setTextColor:[UIColor colorWithRed:255.0/255.0 green:168.0/255.0 blue:85.0/255.0 alpha:1.0]];
+}
 - (void)layoutSubviews
 {
     if(!_dayViews){

@@ -21,9 +21,10 @@
 @property (nonatomic) NSDate *date;
 @property (nonatomic,strong) NSDate *nextDate;
 @property (nonatomic, weak) id<RefreshMonth> refDelegate;
+@property (nonatomic) BOOL isReload;
+
 /*!
  * Must be call if override the class
  */
 - (void)commonInit;
-
 @end
