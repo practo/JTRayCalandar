@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 @implementation JTHorizontalCalendarView
 @synthesize nextDate;
 @synthesize isReload;
+@synthesize centerView = _centerView;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -193,16 +194,20 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 - (void)loadPreviousPage
 {
+    
+    [_refDelegate selectDateInPreviouspage:_leftView.date];
+
+
     NSInteger monthsDiff = [self findDifferenceBetweenMonthsFromDate:_rightView.date toDate:previousDate];
 
     nextDate = [_manager.delegateManager dateForPreviousPageWithCurrentDate:_leftView.date];
     previousDate =_leftView.date;
     
     if (monthsDiff>0) {
-        [_refDelegate getprevioushDataFrom:_leftView.date];
+        [_refDelegate getPreviousDataFrom:_leftView.date];
         
     }
-
+    
     // Must be set before chaging date for PageView for updating day views
     self->_date = _leftView.date;
     
@@ -277,10 +282,15 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     if(_manager.delegate && [_manager.delegate respondsToSelector:@selector(calendarDidLoadPreviousPage:)]){
         [_manager.delegate calendarDidLoadPreviousPage:_manager];
     }
+    
+   
+   
+
 }
 
 - (void)loadNextPage
 {
+    [_refDelegate selectDateInNextpage:_rightView.date];
     NSInteger monthsDiff = [self findDifferenceBetweenMonthsFromDate:_rightView.date toDate:previousDate];
     
     nextDate = [_manager.delegateManager dateForNextPageWithCurrentDate:_rightView.date];
@@ -392,7 +402,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     _rightView.date = [_manager.delegateManager dateForNextPageWithCurrentDate:date];
     if (self.isReload) {
         self.isReload = NO;
-        [_centerView setCOlorForSelecetedDay:[self.manager date]];
+        [_centerView setColorForSelectedDay:[self.manager date]];
         
     }
     [self updateMenuDates];

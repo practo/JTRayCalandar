@@ -6,11 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JTCalendarManager.h"
 
 #import "JTContent.h"
 @protocol RefreshMonth <NSObject>
 -(void)getNextMonthDataFrom:(NSDate*)currentdate;
--(void)getprevioushDataFrom:(NSDate*)currentdate;
+-(void)getPreviousDataFrom:(NSDate*)currentdate;
+-(void)selectDateInPreviouspage:(NSDate*)currentdate;
+-(void)selectDateInNextpage:(NSDate*)currentdate;
 
 @end
 
@@ -22,6 +25,8 @@
 @property (nonatomic,strong) NSDate *nextDate;
 @property (nonatomic, weak) id<RefreshMonth> refDelegate;
 @property (nonatomic) BOOL isReload;
+@property(nonatomic, strong) UIView<JTCalendarPage> *centerView;
+
 
 /*!
  * Must be call if override the class

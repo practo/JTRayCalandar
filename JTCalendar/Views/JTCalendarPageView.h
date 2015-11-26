@@ -19,7 +19,7 @@
  * Must be call if override the class
  */
 - (void)commonInit;
-- (void)setCOlorForSelecetedDay:(NSDate *)selDate;
+- (void)setColorForSelectedDay:(NSDate *)selDate;
 -(void)setColorWeekDay;
 
 @end
