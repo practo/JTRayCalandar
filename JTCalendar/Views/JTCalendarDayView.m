@@ -97,7 +97,7 @@
     
     _circleView.frame = CGRectMake(0, 0, sizeCircle, sizeCircle);
     _circleView.center = CGPointMake(self.frame.size.width / 2., self.frame.size.height / 2.);
-    _circleView.layer.cornerRadius = sizeCircle / 2.;
+    _circleView.layer.cornerRadius = 4.0;
     
     _dotView.frame = CGRectMake(0, 0, 6, sizeDot-1);
     _dotView.center = CGPointMake(self.frame.size.width / 2., (self.frame.size.height / 2.) +5 * 2.5);
