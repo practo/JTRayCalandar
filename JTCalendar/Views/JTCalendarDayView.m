@@ -46,7 +46,8 @@
         _circleView = [UIView new];
         [self addSubview:_circleView];
         
-        _circleView.backgroundColor = [UIColor colorWithRed:0x33/256. green:0xB3/256. blue:0xEC/256. alpha:.5];
+        // ray theme color
+        _circleView.backgroundColor = [UIColor colorWithRed:255.0/255.0f green:168.0/255.0f blue:85.0/255.0f alpha:1.0];
         _circleView.hidden = YES;
 
         _circleView.layer.rasterizationScale = [UIScreen mainScreen].scale;
