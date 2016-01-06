@@ -72,7 +72,7 @@
         
         _textLabel.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
+        _textLabel.font = [UIFont boldSystemFontOfSize:17];
     }
     
     {

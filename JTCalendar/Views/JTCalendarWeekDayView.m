@@ -48,7 +48,7 @@
         
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor colorWithRed:103.0f/255.0f green:103.0f/255.0f blue:103.0f/255.0f alpha:1.0f];
-        label.font = [UIFont fontWithName:@"OpenSans" size:11];
+        label.font = [UIFont systemFontOfSize:11];
     }
     
     _dayViews = dayViews;
