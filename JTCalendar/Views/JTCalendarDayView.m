@@ -46,8 +46,8 @@
         _circleView = [UIView new];
         [self addSubview:_circleView];
         
-        // ray theme color
-        _circleView.backgroundColor = [UIColor colorWithRed:255.0/255.0f green:168.0/255.0f blue:85.0/255.0f alpha:1.0];
+        // Singularity Calendar Color
+        _circleView.backgroundColor = [UIColor colorWithRed:255.0/255.0f green:124.0/255.0f blue:124.0/255.0f alpha:1.0];
         _circleView.hidden = YES;
 
         _circleView.layer.rasterizationScale = [UIScreen mainScreen].scale;

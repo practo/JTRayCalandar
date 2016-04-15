@@ -110,7 +110,8 @@
         return;
     }
     UILabel *label = _dayViews[selectedWeekDay];
-    [label setTextColor:[UIColor colorWithRed:255.0/255.0 green:168.0/255.0 blue:85.0/255.0 alpha:1.0]];
+    // Singularity Calendar Color
+    [label setTextColor:[UIColor colorWithRed:242.0/255.0 green:124.0/255.0 blue:124.0/255.0 alpha:1.0]];
 }
 - (void)layoutSubviews
 {
