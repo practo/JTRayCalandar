@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JTCalendar+practo"
-  s.version          = "2.1.9"
+  s.version          = "2.1.10"
   s.summary          = "customizable calendar view for iOS from Practo."
   s.homepage         = "https://github.com/practo/JTRayCalandar"
   s.license          = { :type => 'MIT' }
