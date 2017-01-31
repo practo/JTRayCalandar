@@ -38,6 +38,7 @@
 // Week view
 
 - (UIView<JTCalendarDay> *)buildDayView;
+- (void)calendarWeekDayView:(UILabel *)dayView isSelectedDay:(BOOL)isSelected;
 
 
 // Day view

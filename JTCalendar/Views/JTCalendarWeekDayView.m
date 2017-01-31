@@ -47,8 +47,8 @@
         [dayViews addObject:label];
         
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor colorWithRed:103.0f/255.0f green:103.0f/255.0f blue:103.0f/255.0f alpha:1.0f];
-        label.font = [UIFont systemFontOfSize:11];
+        label.textColor = [UIColor clearColor];
+        label.font = [UIFont systemFontOfSize:10];
     }
     
     _dayViews = dayViews;
@@ -103,7 +103,7 @@
     
     for(int i = 0; i < NUMBER_OF_DAY_BY_WEEK; ++i){
         UILabel *label =  _dayViews[i];
-        [label setTextColor:[UIColor grayColor]];
+        [_manager.delegateManager calendarWeekDayView:label isSelectedDay:NO];
     }
     
     if (selectedWeekDay > [_dayViews count]) {
@@ -111,7 +111,7 @@
     }
     UILabel *label = _dayViews[selectedWeekDay];
     // Singularity Calendar Color
-    [label setTextColor:[UIColor colorWithRed:242.0/255.0 green:124.0/255.0 blue:124.0/255.0 alpha:1.0]];
+    [_manager.delegateManager calendarWeekDayView:label isSelectedDay:YES];
 }
 - (void)layoutSubviews
 {
