@@ -9,6 +9,7 @@
 
 @interface JTDateHelper : NSObject
 
+@property (nonatomic, strong) NSCalendar *calendar;
 - (NSCalendar *)calendar;
 - (NSDateFormatter *)createDateFormatter;
 
