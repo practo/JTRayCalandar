@@ -78,8 +78,7 @@ static     NSDate  *selectedDate;
 }
 - (void)setColorForSelectedDay:(NSDate *)selDate
 {
-    NSCalendar* currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents* dateComponents = [currentCalendar components:NSWeekdayCalendarUnit fromDate:selDate];
+    NSDateComponents* dateComponents = [_manager.dateHelper.calendar components:NSWeekdayCalendarUnit fromDate:selDate];
     NSInteger day = [dateComponents weekday];
     
     selectedDate = selDate;
