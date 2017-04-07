@@ -108,6 +108,12 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(UIView<JTCalendarDay> *)dayView;
 
 /*!
+ * Used to customize the weekDayView.
+ */
+- (void)calendarWeekDayView:(UILabel *)dayView isSelectedDay:(BOOL)isSelected;
+
+
+/*!
  * Indicate the dayView just get touched.
  */
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(UIView<JTCalendarDay> *)dayView;

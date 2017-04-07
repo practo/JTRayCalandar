@@ -47,7 +47,7 @@
         [self addSubview:_circleView];
         
         // Singularity Calendar Color
-        _circleView.backgroundColor = [UIColor colorWithRed:255.0/255.0f green:124.0/255.0f blue:124.0/255.0f alpha:1.0];
+        _circleView.backgroundColor = [UIColor clearColor];
         _circleView.hidden = YES;
 
         _circleView.layer.rasterizationScale = [UIScreen mainScreen].scale;
@@ -58,7 +58,7 @@
         _dotView = [UIView new];
         [self addSubview:_dotView];
         
-        _dotView.backgroundColor = [UIColor redColor];
+        _dotView.backgroundColor = [UIColor clearColor];
         _dotView.hidden = YES;
 
         _dotView.layer.rasterizationScale = [UIScreen mainScreen].scale;
@@ -70,7 +70,7 @@
         _textLabel = [UILabel new];
         [self addSubview:_textLabel];
         
-        _textLabel.textColor = [UIColor colorWithRed:103./256. green:103./256. blue:103./256. alpha:1.];
+        _textLabel.textColor = [UIColor clearColor];
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.font = [UIFont boldSystemFontOfSize:17];
     }

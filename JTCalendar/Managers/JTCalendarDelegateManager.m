@@ -26,7 +26,7 @@
     
     UILabel *label = [UILabel new];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithRed:103.0f/255.0f green:103.0f/255.0f blue:103.0f/255.0f alpha:1.0f];  //kalyani
+    label.textColor = [UIColor lightGrayColor];
     label.font = [UIFont systemFontOfSize:11];
     return label;
 }
@@ -147,6 +147,13 @@
     
     return [JTCalendarDayView new];
 }
+
+- (void)calendarWeekDayView:(UILabel *)dayView isSelectedDay:(BOOL)isSelected{
+    if(_manager.delegate && [_manager.delegate respondsToSelector:@selector(calendarWeekDayView:isSelectedDay:)]){
+        [_manager.delegate calendarWeekDayView:dayView isSelectedDay:isSelected];
+    }
+}
+
 
 #pragma mark - Day view
 
