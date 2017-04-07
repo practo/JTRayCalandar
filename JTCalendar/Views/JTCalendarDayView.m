@@ -123,6 +123,8 @@
         dateFormatter = [_manager.dateHelper createDateFormatter];
     }
     [dateFormatter setDateFormat:self.dayFormat];
+    dateFormatter.timeZone = _manager.dateHelper.calendar.timeZone;
+    dateFormatter.locale = _manager.dateHelper.calendar.locale;
 
     _textLabel.text = [ dateFormatter stringFromDate:_date];       
     [_manager.delegateManager prepareDayView:self];
