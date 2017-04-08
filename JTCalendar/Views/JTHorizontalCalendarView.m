@@ -177,12 +177,11 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 }
 -(NSInteger)findDifferenceBetweenMonthsFromDate:(NSDate *)currentdate toDate:(NSDate *)prevDate
 {
-    NSCalendar * calendar = [NSCalendar currentCalendar];
-    NSDateComponents * currentDateComponents = [calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:currentdate];
+    NSDateComponents * currentDateComponents = [_manager.dateHelper.calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:currentdate];
     NSInteger currentMonth =currentDateComponents.month;
     NSLog(@"month number = %ld", (long)currentDateComponents.month);
     
-    NSDateComponents * prevDateComponents = [calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:prevDate];
+    NSDateComponents * prevDateComponents = [_manager.dateHelper.calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:prevDate];
     NSInteger prevMonth =prevDateComponents.month;
     if (currentMonth>prevMonth)
         return (currentMonth-prevMonth);
